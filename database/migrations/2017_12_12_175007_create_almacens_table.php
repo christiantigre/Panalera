@@ -38,6 +38,7 @@ class CreateAlmacensTable extends Migration
             $table->text('tw')->nullable();
             $table->text('ins')->nullable();
             $table->text('gg')->nullable();
+            $table->text('min_prodinventario')->nullable();            
             $table->text('funcion_empresa')->nullable();
             $table->text('dirMatriz',191)->nullable();
             $table->text('dirSucursal',191)->nullable();

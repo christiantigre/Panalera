@@ -18,7 +18,7 @@ class ClienteController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin', ['except' => 'logout']);
+        //$this->middleware('admin', ['except' => 'logout']);
     }
 
     public function index(Request $request)

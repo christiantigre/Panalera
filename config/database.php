@@ -1,7 +1,5 @@
 <?php
-
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Default Database Connection Name
@@ -12,9 +10,7 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
     'default' => env('DB_CONNECTION', 'mysql'),
-
     /*
     |--------------------------------------------------------------------------
     | Database Connections
@@ -30,15 +26,12 @@ return [
     | choice installed on your machine before you begin development.
     |
     */
-
     'connections' => [
-
         'sqlite' => [
             'driver' => 'sqlite',
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
-
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -52,22 +45,14 @@ return [
             'prefix' => '',
             'strict' => true,
             'engine' => null,
-
             'dump' => [
-<<<<<<< HEAD
-           'dump_binary_path' => env('DB_DUMP_COMMAND_PATH', 'C:\\xampp\\mysql\\bin\\'), // only the path, so without `mysqldump` or `pg_dump`
-=======
-           'dump_binary_path' => env('PATH_DUMP', 'C:\\xampp\\mysql\\bin\\'), // only the path, so without `mysqldump` or `pg_dump`
->>>>>>> 20c91e631facb3a35a07d98ef8cefb327e09e1d4
+           'dump_binary_path' => 'C:\\xampp\\mysql\\bin\\', // only the path, so without `mysqldump` or `pg_dump`
            'use_single_transaction',
            'timeout' => 60 * 5, // 5 minute timeout
            /*'exclude_tables' => ['table1', 'table2'],
            'add_extra_option' => '--optionname=optionvalue', */
         ] 
-
-
         ],
-
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -80,7 +65,6 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'host' => env('DB_HOST', 'localhost'),
@@ -91,9 +75,7 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
         ],
-
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Migration Repository Table
@@ -104,9 +86,7 @@ return [
     | the migrations on disk haven't actually been run in the database.
     |
     */
-
     'migrations' => 'migrations',
-
     /*
     |--------------------------------------------------------------------------
     | Redis Databases
@@ -117,18 +97,13 @@ return [
     | such as APC or Memcached. Laravel makes it easy to dig right in.
     |
     */
-
     'redis' => [
-
         'client' => 'predis',
-
         'default' => [
             'host' => env('REDIS_HOST', '127.0.0.1'),
             'password' => env('REDIS_PASSWORD', null),
             'port' => env('REDIS_PORT', 6379),
             'database' => 0,
         ],
-
     ],
-
 ];

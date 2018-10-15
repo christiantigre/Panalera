@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="form-group {{ $errors->has('telefono') ? 'has-error' : ''}}">
-                <label for="telefono" class="col-md-4 control-label">{{ 'Telefono' }}</label>
+                <label for="telefono" class="col-md-4 control-label">{{ 'Teléfono' }}</label>
                 <div class="col-md-6">
                     <input class="form-control" name="telefono" type="text" id="telefono" value="{{ $almacen->telefono or ''}}" >
                     {!! $errors->first('telefono', '<p class="help-block">:message</p>') !!}
@@ -237,6 +237,14 @@
                         @endforeach
                     </select>
                     {!! $errors->first('activo', '<p class="help-block">:message</p>') !!}
+                </div>
+            </div>
+
+            <div class="form-group {{ $errors->has('min_prodinventario') ? 'has-error' : ''}}">
+                <label for="min_prodinventario" class="col-md-4 control-label">{{ 'Mín Productos Stock' }}</label>
+                <div class="col-md-6">
+                    <input class="form-control" name="min_prodinventario" type="number" id="min_prodinventario" value="{{ $almacen->min_prodinventario or ''}}" >
+                    {!! $errors->first('min_prodinventario', '<p class="help-block">:message</p>') !!}
                 </div>
             </div>
 

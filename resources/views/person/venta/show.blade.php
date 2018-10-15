@@ -172,7 +172,7 @@
       <a href="{{ url('person/viewfactura',$ventum->id) }}" target="_blanck" class="btn btn-success pull-right" style="margin-right: 5px;">
         <i class="fa fa-eye"></i> VER FACTURA
     </a>
-      <a href="{{ url('person/print',$ventum->id) }}" class="btn btn-primary pull-right" style="margin-right: 5px;">
+      <a href="{{ url('person/print',$ventum->id) }}" target="_blanck" class="btn btn-primary pull-right" style="margin-right: 5px;">
         <i class="fa fa-download"></i> IMPRIMIR
     </a>
 </div>

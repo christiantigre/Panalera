@@ -211,3 +211,7 @@ http://www.facturacionelectronica.ec/ejemplo-factura-electronica-del-ecuador-201
 
 revisar este paquete
 https://github.com/tavo1987/ec-laravel-validator
+
+
+ALTER TABLE ALMACEN
+ALTER TABLE `almacens` ADD `min_prodinventario` TEXT NOT NULL AFTER `canton_id`;

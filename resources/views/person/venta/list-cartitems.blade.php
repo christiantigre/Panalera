@@ -8,7 +8,9 @@
       <th>Producto</th>
       <th>Cantidad</th>
       <th>Precio</th>
+      <th>Iva</th>
       <th>Total</th>
+      <th> Iva % </th>
       <th>Acción</th>
     </tr>
     <?php $i=1; ?>
@@ -19,7 +21,9 @@
       <td>{{ $item->producto }}</td>
       <td>{{ $item->cant }}</td>
       <td>{{ $item->precio }}</td>
+      <td>{{ ($item->precio * $iva_final) }}</td>
       <td>{{ $item->total }}</td>
+      <td>{{ $iva_valor }}</td>
       <td>
         <button class="btn btn-default delete_item" id="{{ $item->id }}" value="{{ $item->id }}" type="button" title="QUITAR" onClick="delete_item_person(this.id);"><i class="fa fa-trash" aria-hidden="true"></i> </button>
       </td>

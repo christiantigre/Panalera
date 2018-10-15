@@ -23,7 +23,7 @@ class ContabilidadController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin', ['except' => 'logout']);
+        //$this->middleware('admin', ['except' => 'logout']);
     }
     /**
      * Display a listing of the resource.

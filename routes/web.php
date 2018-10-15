@@ -37,7 +37,7 @@ Route::group(['prefix' => 'admin'], function () {
   Route::post('/password/reset', 'AdminAuth\ResetPasswordController@reset')->name('password.email');
   Route::get('/password/reset', 'AdminAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'AdminAuth\ResetPasswordController@showResetForm');
-  Route::resource('/almacen', 'Admin\\AlmacenController')->middleware('admin');
+  Route::resource('/almacen', 'Admin\\AlmacenController');
   Route::resource('/category', 'Admin\\CategoryController');
   Route::post('/category/trash', 'Admin\\CategoryController@trash');
   Route::get('category/restore/{id}', 'Admin\\CategoryController@restore');
@@ -220,6 +220,10 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 Route::group(['prefix' => 'person'], function () {
+
+  //Route::get('almacen/getcanton/{id}', 'ComponentController@getCanton');
+  Route::get('almacen/{var}/getcanton/{id}', 'ComponentController@getCanton');
+
   Route::get('/inicio', 'Person\\InicioController@index');
   Route::get('/login', 'PersonAuth\LoginController@showLoginForm')->name('login');
   Route::post('/login', 'PersonAuth\LoginController@login');
@@ -241,7 +245,8 @@ Route::group(['prefix' => 'person'], function () {
   Route::post('/trashItem/','ComponentController@trashItem');
   Route::post('/deleteItem/','ComponentController@deleteItem');
   Route::get('/DetalleVenta/{id}', ['as' => 'detallventa', 'uses' => 'Person\\VentaController@detallventa']);
-  Route::get('/print/{id}', 'Person\\VentaController@print');
+  //Route::get('/print/{id}', 'Person\\VentaController@print');
+  Route::get('/print/{id}', 'Person\\VentaController@imprimir_matr');  
   Route::get('/viewfactura/{id}', 'Person\\VentaController@viewfactura');
   Route::resource('/cliente', 'Person\\ClienteController');
   Route::resource('/product', 'Person\\ProductController');

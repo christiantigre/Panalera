@@ -13,7 +13,7 @@ class tipocuentaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('admin', ['except' => 'logout']);
+        //$this->middleware('admin', ['except' => 'logout']);
         
     }
     /**

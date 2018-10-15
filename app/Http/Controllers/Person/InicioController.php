@@ -12,6 +12,7 @@ use App\Product;
 use App\Ventum;
 use App\Proveedor;
 use App\Cliente;
+use App\Almacen;
 
 class InicioController extends Controller
 {
@@ -26,6 +27,8 @@ class InicioController extends Controller
      */
     public function index()
     {
+        $almacen = Almacen::findOrFail(1);
+
         $perPage = 5;
 
         $carbon = Carbon::now(new \DateTimeZone('America/Guayaquil'));
@@ -34,7 +37,7 @@ class InicioController extends Controller
         $month = $carbon->now()->format('m');
 
         $count_ventas = detallVenta::where('fecha_egreso', $fecha_venta)->count();
-        $productos_bajoonventario = Product::where('cantidad','<','10')->count();
+        $productos_bajoonventario = Product::where('cantidad','<',$almacen->min_prodinventario)->count();
         $productos = Product::where('cantidad','<','10')->paginate($perPage);
         $productos_total = Product::where('activo','1')->count();
         $valor_ventas = Ventum::where('fecha', $fecha_venta)->sum('total');

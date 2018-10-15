@@ -61,7 +61,20 @@
                         </thead>
                         <tbody>
                             @foreach($product as $item)
-                            <tr>
+                            <?php
+                                if ($item->cantidad <= $almacen->min_prodinventario ) {
+                                    $estado = "danger";
+                                }else{
+                                    $estado = "notdanger";
+                                }
+                            ?>
+                            <style type="text/css">
+                                .danger{
+                                    background-color: "#FC3A10";
+                                }
+                                .notdanger{}                                
+                            </style>
+                            <tr class="<?php  echo $estado;  ?>">
                                 <td>{{ $loop->iteration or $item->id }}</td>
                                 <td>{{ $item->producto }}</td><td>{{ $item->cod_barra }}</td><td>{{ $item->pre_compra }}</td><td>{{ $item->pre_venta }}</td><td>{{ $item->cantidad }}</td>
                                 <td>

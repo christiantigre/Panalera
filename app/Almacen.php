@@ -28,7 +28,8 @@ class Almacen extends Model
     protected $fillable = ['almacen', 'propietario', 'gerente', 'pag_web', 'razon_social', 'ruc', 'email', 'fecha_inicio', 'logo', 'name_logo', 'activo', 'telefono', 'cel_movi', 'cel_claro', 'watsapp', 'fb', 'tw', 'ins', 'gg', 'funcion_empresa', 
     'dirMatriz',
     'dirSucursal','fax',
-     'latitud', 'longitud', 'pais_id', 'provincia_id','canton_id','auth_sri','codestablecimiento','codpntemision','slogan'];
+     'latitud', 'longitud', 'pais_id', 'provincia_id','canton_id','auth_sri','codestablecimiento','codpntemision','slogan'
+     ,'min_prodinventario'];
 
     public function almacen()
 	{

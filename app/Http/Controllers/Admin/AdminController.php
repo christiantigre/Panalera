@@ -14,7 +14,7 @@ class AdminController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('admin', ['except' => 'logout']);
+        //$this->middleware('admin', ['except' => 'logout']);
     }
 
     public function index()
@@ -90,6 +90,6 @@ class AdminController extends Controller
     
     protected function guard()
     {
-        return Auth::guard('admin');
+        //return Auth::guard('admin');
     }
 }

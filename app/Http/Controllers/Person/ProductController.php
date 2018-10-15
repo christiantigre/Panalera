@@ -18,6 +18,7 @@ use DB;
 use Excel;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
+use App\Almacen;
 
 class ProductController extends Controller
 {
@@ -32,6 +33,9 @@ class ProductController extends Controller
     }
     public function index(Request $request)
     {
+
+        $almacen = Almacen::findOrFail(1);
+
         $keyword = $request->get('search');
         $perPage = 25;
 
@@ -59,7 +63,7 @@ class ProductController extends Controller
             $this->genLog("Visualizó sección.");
         }
 
-        return view('person.product.index', compact('product'));
+        return view('person.product.index', compact('product','almacen'));
     }
 
     /**

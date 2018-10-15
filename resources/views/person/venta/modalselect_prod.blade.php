@@ -37,7 +37,6 @@
                   <th>ID</th>
                   <th>Imagen</th>
                   <th>Producto</th>
-                  <th>Detalle</th>
                   <th>Cod</th>
                   <th>PVP</th>
                   <th>Stock</th>
@@ -55,7 +54,6 @@
                     </a>
                   </td>
                   <td>{{ $item->producto }}</td>
-                  <td>{{ $item->propaganda }}</td>
                   <td>{{ $item->cod_barra }}</td>
                   <td>{{ $item->pre_venta }}</td>
                   <td>{{ $item->cantidad }}</td>

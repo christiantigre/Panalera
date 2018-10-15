@@ -341,6 +341,33 @@ class VentaController extends Controller
             return $pdf->download($nom_factura.'.pdf');
         }
 
+        public function imprimir_matr($id){
+
+            $ventum = Ventum::orderBy('id', 'DESC')->where('id', $id)->get();
+            $venta = Ventum::findOrFail($id);
+            $num_venta = $venta->num_venta;
+            $nom_factura = "factura-#".$num_venta;
+            $numero_factura = $venta->num_venta;
+            $detallventa= detallVenta::where('id_venta',$id)->get();
+        
+            /*$pdf     = \PDF::loadView('pdf.print_matr', [
+                'ventum'      => $ventum,
+                'detallventa'    => $detallventa,
+                'nom_factura'  => $nom_factura,
+                'numero_factura'=>$numero_factura
+            ]);
+            return $pdf->download($nom_factura.'.pdf');*/
+
+            return view('pdf.print_matr',[
+                'ventum'      => $ventum,
+                'detallventa'    => $detallventa,
+                'nom_factura'  => $nom_factura,
+                'numero_factura'=>$numero_factura
+            ]);
+
+            
+        }
+
         public function viewfactura($id){
             $this->genLog("Visualizó factura id: ".$id);
 

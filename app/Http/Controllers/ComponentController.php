@@ -124,7 +124,7 @@ class ComponentController extends Controller
         $subtotal = $total - ($total*$iva_final);
         $valor_con_iva = ($total-$subtotal);
 
-        return view('person/venta/list-cartitems', compact('carrito'),array(
+        return view('person/venta/list-cartitems', compact('carrito','iva_valor','iva_final'),array(
             'total' =>  $total,
             'iva' =>  $valor_con_iva,
             'subtotal' =>  $subtotal,
