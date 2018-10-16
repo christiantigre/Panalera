@@ -68,7 +68,7 @@
 </div>
 <div class="col-md-6">
 <div class="form-group {{ $errors->has('wts_cli') ? 'has-error' : ''}}">
-    <label for="wts_cli" class="col-md-4 control-label">{{ 'Watsapp' }}</label>
+    <label for="wts_cli" class="col-md-4 control-label">{{ 'WhatsApp' }}</label>
     <div class="col-md-6">
 
          {!! Form::text('wts_cli', null, ['class' => 'form-control', 'id'=>'wts_cli']), old('wts_cli') !!}
@@ -78,7 +78,7 @@
         {!! $errors->first('wts_cli', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('clmovi_cli') ? 'has-error' : ''}}">
-    <label for="clmovi_cli" class="col-md-4 control-label">{{ 'Tlfn Movistar' }}</label>
+    <label for="clmovi_cli" class="col-md-4 control-label">{{ 'Tlf. Movistar' }}</label>
     <div class="col-md-6">
         {!! Form::text('clmovi_cli', null, ['class' => 'form-control', 'id'=>'clmovi_cli']), old('clmovi_cli') !!}
         <!--
@@ -87,7 +87,7 @@
         {!! $errors->first('clmovi_cli', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('clclr_cli') ? 'has-error' : ''}}">
-    <label for="clclr_cli" class="col-md-4 control-label">{{ 'Tlfn Claro' }}</label>
+    <label for="clclr_cli" class="col-md-4 control-label">{{ 'Tlf. Claro' }}</label>
     <div class="col-md-6">        
         {!! Form::text('clclr_cli', null, ['class' => 'form-control', 'id'=>'clclr_cli']), old('clclr_cli') !!}
         <!--

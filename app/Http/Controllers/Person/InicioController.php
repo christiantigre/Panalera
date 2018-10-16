@@ -36,36 +36,56 @@ class InicioController extends Controller
         $year = $carbon->now()->format('Y');
         $month = $carbon->now()->format('m');
 
-        $count_ventas = detallVenta::where('fecha_egreso', $fecha_venta)->count();
-        $productos_bajoonventario = Product::where('cantidad','<',$almacen->min_prodinventario)->count();
-        $productos = Product::where('cantidad','<','10')->paginate($perPage);
+        $count_ventas = Ventum::where('fecha', $fecha_venta)->count();
+
+        if($almacen->min_prodinventario > 0){
+            $productos_bajoonventario = Product::where('cantidad','<=',$almacen->min_prodinventario)->count();
+            $productos = Product::where('cantidad','<=',$almacen->min_prodinventario)->paginate($perPage);
+        }else{
+            $productos_bajoonventario = '';
+            $productos = '';
+        }
+        
+        
+        
         $productos_total = Product::where('activo','1')->count();
+
         $valor_ventas = Ventum::where('fecha', $fecha_venta)->sum('total');
 
         $total_ingresos = Product::whereYear('products.fecha_ingreso','=',$year)
             ->whereMonth('products.fecha_ingreso','=',$month)
             ->get();
 
-        $acumula=0;
-        foreach ($total_ingresos as $ingresos) {
-            $suma = ($ingresos->pre_compra*$ingresos->compras);
-            $acumula = $suma + $acumula;
-        }
+            if (count($total_ingresos) > 0) {
+                $acumula=0;
+                    foreach ($total_ingresos as $ingresos) {
+                        $suma = ($ingresos->pre_compra*$ingresos->compras);
+                        $acumula = $suma + $acumula;
+                    }
+            }else{
+                $acumula = 0;
+            }
+        
 
         $total_egresos = detallVenta::whereYear('detall_ventas.fecha_egreso','=',$year)
             ->whereMonth('detall_ventas.fecha_egreso','=',$month)
             ->get();
-        
-        $acumulaegreso=0;
-        foreach ($total_egresos as $egresos) {
-            $sumaegreso = ($egresos->precio*$egresos->cant);
-            $acumulaegreso = $sumaegreso + $acumulaegreso;
+
+
+        if (count($total_egresos)>0) {
+            $acumulaegreso=0;
+            foreach ($total_egresos as $egresos) {
+                $sumaegreso = ($egresos->precio*$egresos->cant);
+                $acumulaegreso = $sumaegreso + $acumulaegreso;
+            }
+        }else{
+            $acumulaegreso = 0;
         }
 
         $proveedores = Proveedor::where('status','1')->count();        
         $clientes = Cliente::where('activo','1')->count();   
 
-        $ventas = Ventum::orderBy('num_venta','DESC')->where('fecha', $fecha_venta)->paginate($perPage);     
+            $ventas = Ventum::orderBy('num_venta','DESC')->where('fecha', $fecha_venta)->paginate($perPage);    
 
         return view('person.home',compact('fecha_venta','count_ventas','productos_bajoonventario','valor_ventas','productos_total','productos','acumula','acumulaegreso','proveedores','clientes','ventas'));
     }

@@ -30,7 +30,7 @@
         {!! $errors->first('cel_claro', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('watsapp') ? 'has-error' : ''}}">
-    <label for="watsapp" class="col-md-4 col-lg-2 control-label">{{ 'Watsapp' }}</label>
+    <label for="watsapp" class="col-md-4 col-lg-2 control-label">{{ 'WhatsApp' }}</label>
     <div class="col-md-6 col-lg-8">
         {!! Form::text('watsapp', null, ['class' => 'form-control','id'=>'watsapp','autofocus'=>'autofocus']) !!}
         {!! $errors->first('watsapp', '<p class="help-block">:message</p>') !!}

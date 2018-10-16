@@ -27,7 +27,7 @@ class PerfilController extends Controller
             $dataArray['mail'] = $mailAdmin;          
             $dataArray['iduser'] = $adminid;         
 
-            $perfil = Perfil::where('id_usuario',$administrador->id)->where('tipo_usuario','person')->first(); 
+            $perfil = Perfil::where('id_usuario',$administrador->id)->first(); 
 
         } catch (\Exception $e) {         
 
@@ -37,6 +37,7 @@ class PerfilController extends Controller
 
         $this->genLog("Ingresó a perfìl");
         $dato = $this->gen_section();
+
         return view('person.perfil.index',compact('dato','perfil','administrador'));
     }
 

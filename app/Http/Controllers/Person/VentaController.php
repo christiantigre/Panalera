@@ -69,6 +69,7 @@ class VentaController extends Controller
             $this->genLog("Visualizó sección.");
         }
 
+
         return view('person.venta.index', compact('venta'));
     }
 

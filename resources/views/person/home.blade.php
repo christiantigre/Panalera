@@ -4,6 +4,33 @@
 {{ $fecha_venta }}
     <!-- Main content -->
     <section class="content">
+      <div class="row">
+  
+<div class="col-md-12">
+  <a href="{{ url('/person/venta/create') }}">
+     <button type="button" class="btn btn-info">
+              <i class="fa fa-plus"></i>  VENTA
+    </button>
+    </a>
+    <a href="{{ url('/person/cliente/create') }}">
+    <button type="button" class="btn btn-info">
+              <i class="fa fa-plus"></i>  CLIENTE
+    </button>
+    </a>
+    <a href="{{ url('/person/product/create') }}">
+    <button type="button" class="btn btn-info">
+              <i class="fa fa-plus"></i>  PRODUCTO
+    </button>
+    </a>
+    <a href="{{ url('/person/proveedor/create') }}">
+    <button type="button" class="btn btn-info">
+              <i class="fa fa-plus"></i>  PROVEEDOR
+    </button>
+    </a>
+</div>
+
+</div>
+<br>
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-xs-6">
@@ -87,6 +114,7 @@
                   <th style="width: 40px">Stock</th>
                 </tr>
                 <?Php $i=1; ?>
+                @if(!Empty($productos))
                 @foreach($productos as $product)
                 <tr>
                   <td><?php echo $i; ?></td>
@@ -96,12 +124,15 @@
                 </tr>
                 <?Php $i++; ?>
                 @endforeach                
+                @endif                
               </table>
             </div>
             <!-- /.box-body -->
 
             <div class="box-footer clearfix">
-              {!! $productos->appends(['search' => Request::get('search')])->render() !!} 
+              @if(!Empty($productos))
+                {!! $productos->appends(['search' => Request::get('search')])->render() !!} 
+              @endif
             </div>
           </div>
           <!-- /.box -->

@@ -15,7 +15,7 @@ class PaisesTableSeeder extends Seeder
     	Paise::create( [
     		'id'=>1,
             'pais'=>'Ecuador',
-    		'status'=>'1'
+    		'status'=>1
     	] );
     }
 }

@@ -39,7 +39,7 @@
                 <div class="col-md-6 col-lg-6 col-xs-12 col-sm-6">
                     <form method="GET" action="{{ url('/person/product') }}" accept-charset="UTF-8" class="navbar-form navbar-right" role="search">
                         <div class="input-group">
-                            <input type="text" class="form-control" name="search" placeholder="Search..." value="{{ request('search') }}">
+                            <input type="text" class="form-control" name="search" placeholder="Search Advance..." value="{{ request('search') }}">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <i class="fa fa-search"></i>
@@ -53,7 +53,7 @@
             <br/>
             <div class="table-responsive">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless" id="productos-table">
                         <thead>
                             <tr>
                                 <th>#</th><th>Producto</th><th>Cod Barra</th><th>Pre Compra</th><th>Pre Venta</th><th>Cantidad</th><th>Imagen</th><th>Actions</th>
@@ -107,4 +107,14 @@
 </div>
 </div>
 </div>
+@push('scripts')
+<script>
+    
+    $(document).ready(function() {
+    $('#productos-table').DataTable();
+  } );
+</script>
+
+
+@endpush
 @endsection

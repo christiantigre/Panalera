@@ -18,7 +18,7 @@ class CreatePaisTable extends Migration
             $table->string('pais',45);
             $table->string('cod_postal',10)->nullable();
             $table->text('latitud')->nullable();
-            $table->text('longitud')->nullable();
+            $table->text('longitud')->nullable();            
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

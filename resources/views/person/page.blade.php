@@ -117,6 +117,7 @@ href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 
                 <span>Ventas</span>
             </a>
         </li>
+        <!--
         <li class="">
                 <a href="{{ url('person/facturacion') }}"
                 >
@@ -124,7 +125,7 @@ href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 
                 <span>Facturación</span>
             </a>
         </li>
-
+        -->
         <li class="">
             <a href="{{ url('person/product') }}"><i class="fa fa-fw fa-cloud-upload "></i>
                 <span>Productos</span></a>

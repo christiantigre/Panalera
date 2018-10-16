@@ -29,41 +29,72 @@
                 @endif
               
 
-              <h3 class="profile-username text-center">{{ $perfil->nombre }} {{ $perfil->apellido }}</h3>
+              <h3 class="profile-username text-center">
+                @if(!empty($perfil->nombre))
+                {{ $perfil->nombre }} 
+                @endif
+                @if(!empty($perfil->apellido))
+                {{ $perfil->apellido }}
+                @endif
+              </h3>
 
-              <p class="text-muted text-center">{{ $perfil->titulo }}</p>
+              <p class="text-muted text-center">
+                @if(!empty($perfil->nombre))                
+                {{ $perfil->nombre }}
+                @endif
+              </p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>Cedula</b> <a class="pull-right">{{ $perfil->cedula }}</a>
+                  <b>Cedula</b> <a class="pull-right">
+                @if(!empty($perfil->cedula))
+                {{ $perfil->cedula }}
+                @endif
+              </a>
                 </li>
                 <li class="list-group-item">
-                  <b>Ruc</b> <a class="pull-right">{{ $perfil->ruc }}</a>
+                  <b>Ruc</b> <a class="pull-right">
+                @if(!empty($perfil->ruc))
+                {{ $perfil->ruc }}
+                @endif
+              </a>
                 </li>
                 <li class="list-group-item">
-                  <b>Telefono</b> <a class="pull-right">{{ $perfil->telefono }}</a>
+                  <b>Telefono</b> <a class="pull-right">
+                @if(!empty($perfil->telefono))
+                {{ $perfil->telefono }}
+                @endif
+              </a>
                 </li>
                 <li class="list-group-item">
-                  <b>Celular</b> <a class="pull-right">{{ $perfil->celular }}</a>
+                  <b>Celular</b> <a class="pull-right">
+                @if(!empty($perfil->celular))
+                {{ $perfil->celular }}
+                @endif
+              </a>
                 </li>
                 <li class="list-group-item">
-                  <b>Cumpleaños</b> <a class="pull-right">{{ $perfil->fecha_nacimiento }}</a>
+                  <b>Cumpleaños</b> <a class="pull-right">
+                @if(!empty($perfil->fecha_nacimiento))
+                {{ $perfil->fecha_nacimiento }}
+                @endif
+              </a>
                 </li>
                 <li class="list-group-item">
                   <b>Estado Civil</b> <a class="pull-right">
-                    @if($perfil->estado_civil=="1")
+                    @if($perfil->estado_civil===1)
                         Soltero(a)
                     @endif
-                    @if($perfil->estado_civil=="2")
+                    @if($perfil->estado_civil===2)
                         Casado(a)
                     @endif
-                    @if($perfil->estado_civil=="3")
+                    @if($perfil->estado_civil===3)
                        Divorciado(a)
                     @endif
-                    @if($perfil->estado_civil=="4")
+                    @if($perfil->estado_civil===4)
                         Union Libre
                     @endif
-                    @if($perfil->estado_civil=="5")
+                    @if($perfil->estado_civil===5)
                         Viudo(a)
                     @endif
                   </a>
