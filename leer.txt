@@ -215,3 +215,16 @@ https://github.com/tavo1987/ec-laravel-validator
 
 ALTER TABLE ALMACEN
 ALTER TABLE `almacens` ADD `min_prodinventario` TEXT NOT NULL AFTER `canton_id`;
+
+
+secuencia de borrado orden
+TRUNCATE `detall_ventas`;
+TRUNCATE `comprobante_ventas`;
+delete FROM `ventas`;
+ALTER TABLE ventas AUTO_INCREMENT = 1;
+DELETE FROM `products`;
+ALTER TABLE products AUTO_INCREMENT = 1;
+DELETE FROM `proveedors`;
+ALTER TABLE proveedors AUTO_INCREMENT = 1;
+DELETE FROM `clientes`;
+ALTER TABLE clientes AUTO_INCREMENT = 1;

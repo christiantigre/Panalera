@@ -177,6 +177,18 @@ class ProductController extends Controller
         return view('person.product.edit', compact('product','category','subcategory','marca','fecha'));
     }
 
+    public function downloadFormat($type){
+        $this->genLog("Descargó formato de importación : ".$type);
+        $data = '';
+        return Excel::create('exportardatos', function($excel) use ($data) {
+            $excel->sheet('mySheet', function($sheet) use ($data)
+            {
+                $sheet->row(1, ["producto",    "cod_barra",   "pre_compra",  "pre_venta",   "cantidad",    "imagen",  "name_img",    "nuevo",   "promo",   "catalogo",    "activo",  "propaganda",  "id_category", "id_subcategory",  "id_proveedor",    "id_marca"
+                ]);
+            });
+        })->download($type);
+    }
+
     public function downloadExcel($type){
                 $this->genLog("Descargó excel : ".$type);
         $data = Product::get()->toArray();

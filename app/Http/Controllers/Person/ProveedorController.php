@@ -118,6 +118,20 @@ class ProveedorController extends Controller
         return redirect('person/proveedor');
     }
 
+
+    public function downloadFormat($type){
+        $this->genLog("Descargó formato de importación : ".$type);
+        $data = '';
+        return Excel::create('exportardatos', function($excel) use ($data) {
+            $excel->sheet('mySheet', function($sheet) use ($data)
+            {
+                $sheet->row(1, ["proveedor",   "dir", "tlfn",    "cel_movi",    "cel_claro",   "watsapp", "fax", "mail",    "web", "ruc", "representante",   "actividad",   "status",  "empresa", "ubicación",   "latitud", "longitud",    "logo",    "id_pais", "id_provincia",    "id_canton"
+
+                ]);
+            });
+        })->download($type);
+    }
+
     public function downloadExcel($type){
         $data = Proveedor::get()->toArray();
         return Excel::create('Proveedores', function($excel) use ($data) {

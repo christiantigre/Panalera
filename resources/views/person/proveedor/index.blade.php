@@ -22,7 +22,9 @@
                         <a href="{{ URL::to('/person/proveedor/downloadExcel/csv') }}">
                             <button class="btn btn-success btn-sm">Descargar CSV</button>
                         </a>
-
+                        <a href="{{ URL::to('/person/proveedor/downloadFormat/xlsx') }}">
+                            <button class="btn btn-success btn-sm">Descargar Formato</button>
+                        </a>
 
 
                         <div class="container">

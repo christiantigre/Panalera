@@ -251,7 +251,9 @@ Route::group(['prefix' => 'person'], function () {
   Route::resource('/cliente', 'Person\\ClienteController');
   Route::resource('/product', 'Person\\ProductController');
   Route::post('/product/importexcelProducts', 'Person\\ProductController@importExcelProducts');
+  Route::get('/product/downloadFormat/{type}', 'Person\\ProductController@downloadFormat');
   Route::resource('/proveedor', 'Person\\ProveedorController');
+  Route::get('/proveedor/downloadFormat/{type}', 'Person\\ProveedorController@downloadFormat');
   Route::resource('/iva', 'Person\\IvaController');
   Route::resource('/marca', 'Person\\MarcaController');
   Route::resource('/category', 'Person\\CategoryController');
