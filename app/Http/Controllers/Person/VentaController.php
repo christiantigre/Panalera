@@ -111,6 +111,10 @@ class VentaController extends Controller
         return view('person.venta.create',compact('numero_venta','fecha_venta','clientes','products','cant_incr','username','userid','useremail','tipospagos','entregas'));
     }
 
+    public function searchcodbarra(Request $request){
+        dd($request);
+    }
+
     public function extraerdatoscliente(Request $request){
         if ($request->ajax()) {
             $cliente = Cliente::orderBy('id','DESC')->where('id',$request->id)->first();

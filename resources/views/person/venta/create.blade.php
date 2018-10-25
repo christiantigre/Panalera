@@ -31,6 +31,12 @@
         <!-- /.box-header -->
         <div class="box-body">
           <div class="row">
+            <div class="col-md-6">
+                <form method="POST" action="{{ url('/person/searchcodbarra') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input class="form-control input-sm" name="lectorbarra" type="text" id="lectorbarra" value="" placeholder="LECTOR BARRAS" autofocus="autofocus">
+                </form>
+            </div>
             <form method="POST" action="{{ url('/person/venta') }}" accept-charset="UTF-8" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 @include ('person.venta.form')

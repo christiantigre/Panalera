@@ -1,5 +1,9 @@
 
 <div class="col-md-12">
+
+    <div class="col-md-9">
+    <div class="col-md-9">
+
     <a href="" data-toggle="modal" data-target="#modal-seleccionacliente" class="btn btn-default btn-sm" title="Buscar Cliente">
         <i class="fa fa-search" aria-hidden="true"></i> Buscar Cliente
     </a>
@@ -20,6 +24,9 @@
         <i class="fa fa-search" aria-hidden="true"></i> Test Modal
     </a>
 -->
+</div>
+    
+    </div>
 
     
     

@@ -237,6 +237,8 @@ Route::group(['prefix' => 'person'], function () {
   Route::get('/password/reset', 'PersonAuth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
   Route::get('/password/reset/{token}', 'PersonAuth\ResetPasswordController@showResetForm');
   Route::resource('/venta', 'Person\\VentaController');
+
+  Route::post('/searchcodbarra/', 'Person\\VentaController@searchcodbarra');
   Route::get('/extraerdatoscli/','Person\\VentaController@extraerdatoscliente');
   Route::post('/getClienteId/', 'ComponentController@getcliente');
   Route::post('/savecli/', 'ComponentController@savecliente');
