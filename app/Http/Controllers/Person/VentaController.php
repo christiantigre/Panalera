@@ -94,7 +94,7 @@ class VentaController extends Controller
         $username = $administrador['name'];
         $userid = $administrador['id'];
         $useremail = $administrador['email'];
-        ItemVenta::truncate();
+        //ItemVenta::truncate();
         $cant_ventas = Ventum::count();
         $clientes = Cliente::all();
         //$products = Product::orderBy('id','ASC')->where('cantidad'>'0')->get();
@@ -112,7 +112,36 @@ class VentaController extends Controller
     }
 
     public function searchcodbarra(Request $request){
-        dd($request);
+        
+        $product = Product::where('cod_barra', '=', $request->lectorbarra)->first();
+
+        if(!empty($product)){
+
+            $item = new ItemVenta;        
+            $product_cantidad = 1;
+            $item->producto = $product->producto;
+            //$item->producto = $product->nombre;
+            $item->codbarra = $product->cod_barra;
+            $item->precio = $product->pre_venta;
+            $item->cant = $product_cantidad;
+            $item->stock = $product->cantidad;
+            $item->total = ($product->pre_venta*$product_cantidad);
+            $item->id_producto = $product->id;
+            if($item->save()){
+                Session::flash('success', $product->producto.' Item agregado correctamente...');  
+                return redirect()->back();
+            }else{
+                Session::flash('warning', 'No se puede agregar el item.');  
+                return redirect()->back();
+            }
+
+        }else{
+            Session::flash('warning', 'No se encontró producto con esta referencia.');  
+            return redirect()->back();
+        }
+        
+        
+
     }
 
     public function extraerdatoscliente(Request $request){

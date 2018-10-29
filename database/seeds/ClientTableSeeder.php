@@ -18,7 +18,7 @@ class ClientTableSeeder extends Seeder
 'ced_cli'=>'9999999999999',
 'ruc_cli'=>'',
 'dir_cli'=>'s/n',
-'mail_cli'=>'andrescondo17@gmail.com',
+'mail_cli'=>'clientefinal@gmail.com',
 'tlf_cli'=>'',
 'wts_cli'=>'',
 'clmovi_cli'=>'',

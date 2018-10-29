@@ -21,6 +21,7 @@ class CreateItemVentasTable extends Migration
             $table->string('cant',20)->nullable();
             $table->double('total',15,2)->nullable();
             $table->double('descuento',15,2)->nullable();
+            $table->integer('stock')->default(1);            
             $table->integer('id_producto')->unsigned();            
             $table->foreign('id_producto')->references('id')->on('products');
             $table->timestamps();

@@ -19,7 +19,15 @@
       <td style="width: 10px"><?Php echo $i; ?></td>
       <td>{{ $item->codbarra }}</td>
       <td>{{ $item->producto }}</td>
-      <td>{{ $item->cant }}</td>
+      <td>
+        <div class="col-md-6">
+        <input type="number" name="cantidad_item" id="{{ $item->id }}" value="{{ $item->cant }}" class="form-control input-sm" min="1" max="{{ $item->stock }}" onChange="item_change(this.id, this.value);" />
+        </div>
+        <!-- 
+        <button class="btn btn-default btn-sm delete_item" id="{{ $item->id }}" value="{{ $item->id }}" type="button" title="-" onClick="item_menos(this.id);"><i class="fa fa-minus" aria-hidden="true"></i> </button>
+        <button class="btn btn-default btn-sm delete_item" id="{{ $item->id }}" value="{{ $item->id }}" type="button" title="+" onClick="item_mas(this.id);"><i class="fa fa-plus" aria-hidden="true"></i> </button>
+        -->
+      </td>
       <td>{{ $item->precio }}</td>
       <td>{{ ($item->precio * $iva_final) }}</td>
       <td>{{ $item->total }}</td>
